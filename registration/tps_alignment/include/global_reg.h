@@ -239,13 +239,13 @@ class threaded_alignment {
   threaded_alignment(const opts_t &opts, const vector<char *> &mesh_names,
                      const vector<corr_vector> &corrs, const vector<point> &targets,
                      const vector<bool> &use_points, const vector<float> &confidence,
-                     TriMesh *points_mesh, const vector<TriMesh::Face> &all_faces) : counter(0) {
+                     TriMesh *points_mesh, const vector<TriMesh::Face> &all_faces) : counter(0), data{opts, mesh_names, corrs, targets, use_points, confidence, points_mesh, all_faces, this} {
     pthread_mutex_init(&counter_mutex, NULL);
     pthread_mutex_init(&mesh_mutex, NULL);
 
-    align_scan_struct d = { opts, mesh_names, corrs, targets, use_points,
-             confidence, points_mesh, all_faces, this };
-    memcpy(&data, &d, sizeof(align_scan_struct));
+    //align_scan_struct d = { opts, mesh_names, corrs, targets, use_points,
+    //         confidence, points_mesh, all_faces, this };
+    //memcpy(&data, &d, sizeof(align_scan_struct));
 
     threads.resize(opts.nthreads);
     for (int i = 0; i < opts.nthreads; i++) {

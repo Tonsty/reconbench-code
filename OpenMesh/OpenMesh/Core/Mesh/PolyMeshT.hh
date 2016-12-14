@@ -165,6 +165,7 @@ public:
   typedef typename Kernel::ConstFaceFaceIter         ConstFaceFaceIter;
   //@}
 
+  using Kernel::set_point;
 
   // --- constructor/destructor
   PolyMeshT() {}

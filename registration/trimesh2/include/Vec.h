@@ -433,6 +433,14 @@ static inline const T len(const Vec<D,T> &v)
 	return sqrt(len2(v));
 }
 
+
+// Utility functions for square and cube, to go along with sqrt and cbrt
+template <class T>
+static inline T sqr(const T &x)
+{
+	return x*x;
+}
+
 template <int D, class T>
 static inline const T dist2(const Vec<D,T> &v1, const Vec<D,T> &v2)
 {
@@ -472,14 +480,6 @@ template <class T>
 static inline T trinorm(const T &v0, const T &v1, const T &v2)
 {
 	return (typename T::value_type) 0.5 * ((v1 - v0) CROSS (v2 - v0));
-}
-
-
-// Utility functions for square and cube, to go along with sqrt and cbrt
-template <class T>
-static inline T sqr(const T &x)
-{
-	return x*x;
 }
 
 template <class T>

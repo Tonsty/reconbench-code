@@ -88,6 +88,9 @@ public:
   typedef EPropHandleT<EdgeData>                DataEPropHandle;
   typedef FPropHandleT<FaceData>                DataFPropHandle;
 
+  using Connectivity::property;
+  using Connectivity::add_property;
+
 public:
 
   //-------------------------------------------------- constructor / destructor

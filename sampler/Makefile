@@ -10,8 +10,8 @@ ANN_INC = ../ann/include
 OPENMESH_LIB = ../OpenMesh/lib
 ANN_LIB = ../ann/lib
 
-CXXFLAGS = -g -I$(OPENMESH_INC) -I$(ANN_INC) -I/usr/include/libpng14
-LDFLAGS = -lblas -llapack -L$(MODELING_LIB) -lmodeling -L$(OPENMESH_LIB) -lOpenMeshCore -L$(ANN_LIB) -lANN -lpng14
+CXXFLAGS = -g -I$(OPENMESH_INC) -I$(ANN_INC) -I/usr/include/libpng12
+LDFLAGS = -lblas -lmodeling -llapack -L$(MODELING_LIB) -L$(OPENMESH_LIB) -lOpenMeshCore -L$(ANN_LIB) -lANN -lpng12
 
 CXXFLAGS += -DHAS_TEEM=0
 
@@ -62,6 +62,7 @@ lib : $(LIB_OBJS)
 	@ echo "Creating static library for sampler ..."
 	@ ar cr $(LIB_DIR)/libsampler.a $(LIB_OBJS)
 		@ ranlib $(LIB_DIR)/libsampler.a
+	}
 
 $(LIB_DIR)/%.o : %.cpp
 	@ echo "Compiling $< ..."
